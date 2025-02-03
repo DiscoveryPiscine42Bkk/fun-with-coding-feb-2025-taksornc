@@ -1,12 +1,9 @@
-/* General Reset */
 body, html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     font-family: Arial, sans-serif;
 }
-
-/* Parallax Section */
 .parallax {
     height: 100vh;
     background-attachment: fixed;
@@ -30,18 +27,27 @@ body, html {
 }
 
 .message {
-    font-size: 2em;
+    font-size: 2.5em;
     text-align: center;
 }
 
 .block {
-    height: 100vh;
+    height: 50vh;
     background-color: red;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5em;
+    font-size: 3em;
     text-align: center;
+    color: yellow;
 }
-
+.video-section {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: red;
+  }.video-container {
+    width: 100%; 
+    max-width:500px; 
+  }
