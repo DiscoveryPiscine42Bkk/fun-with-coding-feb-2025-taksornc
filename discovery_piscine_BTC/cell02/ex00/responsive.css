@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+table {
+    width: 100vw;
+    height: 100vh;
+    border-collapse: collapse;
+}
+
+td {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    font-size: 2vw;
+}.first-cell {
+    background-color: #C5E0B4;
+}.second-cell {
+    background-color: #F4B084;
+}
