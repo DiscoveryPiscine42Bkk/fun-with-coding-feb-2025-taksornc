@@ -1,0 +1,66 @@
+width: 300px;
+  margin: 50px auto;
+  position: relative;
+}.bread {
+  background-color: #b58969;
+  height: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}.top {
+  margin-bottom: 5px;
+}.bottom {
+  margin-top: 5px;
+}.filling {
+  position: relative;
+}.butter {
+  background-color: #f7f3cf;
+  height: 5px;
+}.cheese {
+  background-color: #f7e9b9;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}.menu li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}.menu a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  position: relative;
+}.menu a::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333;
+  opacity: 0;
+  transition: opacity 0.3s;
+}.menu li:hover a::after {
+  opacity: 1;
+}.menu li ul { /* Dropdown menu */
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}.menu li:hover ul {
+  display: block;
+}.menu li ul li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
