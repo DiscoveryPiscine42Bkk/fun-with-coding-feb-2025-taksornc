@@ -1,1 +1,1 @@
-ls -a | grep -v '^\.' | tr ' ' ','
+ls -m
