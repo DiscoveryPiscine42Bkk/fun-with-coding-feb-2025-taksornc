@@ -22,11 +22,11 @@ body, html {
 }
 
 #section1 {
-    background-image: url('image1.jpg');
+    background-image: url('https://images2.minutemediacdn.com/image/upload/c_crop,w_4000,h_2250,x_0,y_196/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/images/GettyImages/mmsport/90min_th_international_web/01hrawg5pwqjmw5qt3ta.jpg');
 }
 
 #section2 {
-    background-image: url('image2.jpg');
+    background-image: url('https://www.khaosod.co.th/wpapp/uploads/2022/11/%E0%B8%9A%E0%B8%B2%E0%B9%80%E0%B8%A2%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%992-61.jpg');
 }
 
 .message {
