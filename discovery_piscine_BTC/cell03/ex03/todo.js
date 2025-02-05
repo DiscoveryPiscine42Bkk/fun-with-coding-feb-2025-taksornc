@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     loadTodos();
 
-    document.getElementById("new").addEventListener("click", function () {
+     document.getElementById("new").onclick = function () {
         let text = prompt("Enter a new TODO:");
         if (text) {
             addTodo(text);
