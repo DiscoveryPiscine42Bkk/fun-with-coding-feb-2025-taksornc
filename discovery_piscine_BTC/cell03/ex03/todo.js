@@ -2,6 +2,10 @@ window.onload = function() {
   loadTodos();
   document.getElementById('new-button').addEventListener('click', newTodo);
 };
+window.onload = function() {
+  loadTodos();
+  document.getElementById('new-button').addEventListener('click', newTodo);
+};
 
 function newTodo() {
   let todo = prompt("Enter new TO DO:");
