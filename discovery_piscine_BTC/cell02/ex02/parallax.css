@@ -42,12 +42,3 @@ body, html {
     text-align: center;
     color: yellow;
 }
-.video-section {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    background-color: red;
-  }.video-container {
-    width: 100%; 
-    max-width:500px; 
-  }
