@@ -1,54 +1,49 @@
-function loadTasks() {
-  let storedTasks = localStorage.getItem('tasks');
-  return storedTasks? JSON.parse(storedTasks):;
-}
-
-function saveTasks(tasks) {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-function createTaskElement(taskText, taskIndex) {
-  let taskItem = document.createElement('div');
-  taskItem.textContent = taskText;
-  taskItem.addEventListener('click', () => {
-    if (confirm('ต้องการลบรายการนี้หรือไม่?')) {
-      removeTask(taskIndex);
-    }
-  });
-  return taskItem;
-}
-
-function renderTasks(tasks) {
-  let todoList = document.getElementById('ft_list');
-  todoList.innerHTML = ''; // Clear the list before rendering
-
-  tasks.forEach((task, index) => {
-    let taskElement = createTaskElement(task, index);
-    todoList.prepend(taskElement); 
-  });
-}
-
-function addTask(taskText) {
-  let tasks = loadTasks();
-  tasks.unshift(taskText); 
-  saveTasks(tasks);
-  renderTasks(tasks);
-}
-
-function removeTask(taskIndex) {
-  let tasks = loadTasks();
-  tasks.splice(taskIndex, 1);
-  saveTasks(tasks);
-  renderTasks(tasks);
-}
-
-function handleNewTask() {
-  let newTask = prompt('เพิ่มรายการ To-Do ใหม่:');
-  if (newTask) {
-    addTask(newTask);
-  }
-}
-document.addEventListener('DOMContentLoaded', () => {
-  renderTasks(loadTasks());
-  document.getElementById('newTask').addEventListener('click', handleNewTask);
+document.addEventListener('DOMContentLoaded', function() {
+    loadTodos();
+    document.getElementById('new').addEventListener('click', function() {
+        const todo = prompt('Enter a new TODO:');
+        if (todo && todo.trim()) {
+            addTodo(todo);
+            saveTodos();
+        }
+    });
 });
+
+function addTodo(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    
+    // Add click handler for removing todo
+    div.addEventListener('click', function() {
+        if (confirm('Do you want to remove this TODO?')) {
+            div.remove();
+            saveTodos();
+        }
+    });
+
+    // Add to top of list
+    const list = document.getElementById('ft_list');
+    list.insertBefore(div, list.firstChild);
+}
+
+function saveTodos() {
+    const todos = [];
+    document.querySelectorAll('#ft_list div').forEach(function(div) {
+        todos.push(div.textContent);
+    });
+    document.cookie = 'todos=' + JSON.stringify(todos) + ';path=/;max-age=31536000';
+}
+
+function loadTodos() {
+    const match = document.cookie.match('todos=([^;]+)');
+    if (match) {
+        try {
+            const todos = JSON.parse(match[1]);
+            todos.forEach(function(todo) {
+                addTodo(todo);
+            });
+        } catch (e) {
+            console.error('Error loading todos:', e);
+        }
+    }
+}
