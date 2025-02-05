@@ -2,14 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     loadTodos();
 
     document.getElementById("new").addEventListener("click", function () {
-        if (document.querySelectorAll(".todo").length === 0) {
-            let text = prompt("Enter a new TODO:");
-            if (text) {
-                addTodo(text);
-                saveTodos();
-            }
-        } else {
-            alert("You can only add one TODO at a time.");
+        let text = prompt("Enter a new TODO:");
+        if (text) {
+            addTodo(text);
+            saveTodos();
         }
     });
 });
@@ -42,7 +38,7 @@ function loadTodos() {
         let [name, value] = cookie.split("=");
         if (name === "todos") {
             let todos = JSON.parse(value);
-            }
+            todos.forEach(todo => addTodo(todo));
         }
     }
 }
