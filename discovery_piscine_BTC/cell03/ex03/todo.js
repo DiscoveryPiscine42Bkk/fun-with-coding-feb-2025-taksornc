@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadTodos();
+
     document.getElementById('new').addEventListener('click', function() {
         const todo = prompt('Enter a new TODO:');
         if (todo && todo.trim()) {
@@ -13,7 +14,6 @@ function addTodo(text) {
     const div = document.createElement('div');
     div.textContent = text;
     
-    // Add click handler for removing todo
     div.addEventListener('click', function() {
         if (confirm('Do you want to remove this TODO?')) {
             div.remove();
@@ -21,7 +21,6 @@ function addTodo(text) {
         }
     });
 
-    // Add to top of list
     const list = document.getElementById('ft_list');
     list.insertBefore(div, list.firstChild);
 }
