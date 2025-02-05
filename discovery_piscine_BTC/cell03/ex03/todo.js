@@ -1,47 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     loadTodos();
-    document.getElementById('new').addEventListener('click', function() {
-        const todo = prompt('Enter a new TODO:');
-        if (todo && todo.trim()) {
-            addTodo(todo);
+
+    document.getElementById("new").addEventListener("click", function () {
+        let text = prompt("Enter a new TODO:");
+        if (text) {
+            addTodo(text);
             saveTodos();
         }
     });
 });
 
 function addTodo(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-
-    div.addEventListener('click', function() {
-        if (confirm('Do you want to remove this TODO?')) {
-            div.remove();
+    let todo = document.createElement("div");
+    todo.className = "todo";
+    todo.textContent = text;
+    todo.addEventListener("click", function () {
+        if (confirm("Do you want to delete this TODO?")) {
+            todo.remove();
             saveTodos();
         }
     });
-
-    const list = document.getElementById('ft_list');
-    list.insertBefore(div, list.firstChild);
+    let list = document.getElementById("ft_list");
+    list.prepend(todo);
 }
 
 function saveTodos() {
-    const todos = [];
-    document.querySelectorAll('#ft_list div').forEach(function(div) {
-        todos.push(div.textContent);
+    let todos = [];
+    document.querySelectorAll(".todo").forEach(todo => {
+        todos.push(todo.textContent);
     });
-    document.cookie = 'todos=' + JSON.stringify(todos) + ';path=/;max-age=31536000';
+    document.cookie = "todos=" + JSON.stringify(todos) + "; path=/";
 }
 
 function loadTodos() {
-    const match = document.cookie.match('todos=([^;]+)');
-    if (match) {
-        try {
-            const todos = JSON.parse(match[1]);
-            todos.forEach(function(todo) {
-                addTodo(todo);
-            });
-        } catch (e) {
-            console.error('Error loading todos:', e);
+    let cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+        let [name, value] = cookie.split("=");
+        if (name === "todos") {
+            let todos = JSON.parse(value);
+            todos.forEach(todo => addTodo(todo));
         }
     }
 }
+
