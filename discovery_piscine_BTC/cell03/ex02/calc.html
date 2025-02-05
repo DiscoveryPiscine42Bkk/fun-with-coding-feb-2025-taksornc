@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercise 02: It's over 9000!</title>
+</head>
+<body>
+  <h1>Calculator</h1>
+
+  <input type="text" id="leftOperand" placeholder="Enter number">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+  </select>
+  <input type="text" id="rightOperand" placeholder="Enter number">
+  <input type="button" value="Try me!" onclick="calculate()">
+
+  <script>
+    function calculate() {
+      const leftOperand = document.getElementById("leftOperand").value;
+      const operator = document.getElementById("operator").value;
+      const rightOperand = document.getElementById("rightOperand").value;
+
+      if (!/^\d+$/.test(leftOperand) ||!/^\d+$/.test(rightOperand)) {
+        alert("Error:(");
+        console.error("Invalid input: Operands must be positive integers.");
+        return;
+      }
+
+      const num1 = parseInt(leftOperand);
+      const num2 = parseInt(rightOperand);
+
+      let result;
+      switch (operator) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          if (num2 === 0) {
+            alert("It's over 9000!");
+            console.error("Division by zero.");
+            return;
+          }
+          result = num1 / num2;
+          break;
+        case "%":
+          if (num2 === 0) {
+            alert("It's over 9000!");
+            console.error("Modulo by zero.");
+            return;
+          }
+          result = num1 % num2;
+          break;
+      }
+
+      alert(`Result: ${result}`);
+      console.log(`Result: ${result}`);
+    }
+
+    setInterval(() => {
+      alert("Please, use me...");
+    }, 30000);
+  </script>
+
+</body>
+</html>
