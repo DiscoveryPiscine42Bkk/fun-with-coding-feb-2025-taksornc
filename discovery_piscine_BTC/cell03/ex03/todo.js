@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
     loadTodos();
 
-     document.getElementById("new").onclick = function () {
-        let text = prompt("Enter a new TODO:");
-        if (text) {
-            addTodo(text);
-            saveTodos();
+     document.getElementById('new').addEventListener('click', () => {
+    const textxas = prompt('Enter a new TO DO:');
+    if (textxas) {
+      textxas.push(textxas); 
+      addTaskToDOM(textxas);
+      saveTasks(textxas); 
         }
     });
 });
 
-function addTodo(text) {
+function addTodo(textxas) {
     let todo = document.createElement("div");
     todo.className = "todo";
-    todo.textContent = text;
+    todo.textContent = textxas;
     todo.addEventListener("click", function () {
         if (confirm("Do you want to delete this TODO?")) {
             todo.remove();
