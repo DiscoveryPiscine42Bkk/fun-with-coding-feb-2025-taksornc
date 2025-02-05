@@ -42,8 +42,6 @@ function loadTodos() {
         let [name, value] = cookie.split("=");
         if (name === "todos") {
             let todos = JSON.parse(value);
-            if (todos.length > 0) {
-                addTodo(todos[0]);
             }
         }
     }
