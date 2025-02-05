@@ -1,7 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  renderTasks(loadTasks());
-  document.getElementById('newTask').addEventListener('click', handleNewTask);
-});
 function loadTasks() {
   let storedTasks = localStorage.getItem('tasks');
   return storedTasks? JSON.parse(storedTasks):;
@@ -28,13 +24,13 @@ function renderTasks(tasks) {
 
   tasks.forEach((task, index) => {
     let taskElement = createTaskElement(task, index);
-    todoList.prepend(taskElement); // Add new tasks to the top
+    todoList.prepend(taskElement); 
   });
 }
 
 function addTask(taskText) {
   let tasks = loadTasks();
-  tasks.unshift(taskText); // Add new tasks to the beginning of the array
+  tasks.unshift(taskText); 
   saveTasks(tasks);
   renderTasks(tasks);
 }
@@ -52,3 +48,7 @@ function handleNewTask() {
     addTask(newTask);
   }
 }
+document.addEventListener('DOMContentLoaded', () => {
+  renderTasks(loadTasks());
+  document.getElementById('newTask').addEventListener('click', handleNewTask);
+});
