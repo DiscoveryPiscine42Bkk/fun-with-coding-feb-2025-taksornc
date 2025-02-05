@@ -37,7 +37,7 @@ function loadTodos() {
     const match = document.cookie.match('todos=([^;]+)');
     if (match) {
         try {
-            const todos = JSON.parse(match[1]);
+            const todos = JSON.parse(match[0]);
             todos.forEach(function(todo) {
                 addTodo(todo);
             });
