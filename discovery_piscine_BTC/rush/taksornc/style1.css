@@ -1,4 +1,3 @@
-/* Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
@@ -19,15 +19,16 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
 }
 
-/* แถบบน */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   background: linear-gradient(pink, yellow);
-  padding: 20px;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +39,7 @@ body {
 .nav-brand {
   font-size: 1.5rem;
   font-weight: bold;
-  color : blue
+  color: blue;
 }
 
 .nav-links {
@@ -47,7 +48,7 @@ body {
 }
 
 .nav-links li {
-  margin-left: 30px;
+  margin-left: 1.875rem;
 }
 
 .nav-links a {
@@ -74,33 +75,35 @@ body {
   transition: all 0.3s ease;
 }
 
-/* หน้าwelcome */
+/* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(pink,red);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+  padding: 2rem;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1.25rem;
 }
 
-/* แนะนําตัวผม */
+/* About Section */
 .about {
-  padding: 100px 0;
-  background: linear-gradient(#6699FF		,white);
+  padding: 4rem 0;
+  background: linear-gradient(#6699FF, white);
 }
 
 .about-content {
   display: flex;
   align-items: center;
-  gap: 50px;
-  margin-top: 50px;
+  gap: 3.125rem;
+  margin-top: 3.125rem;
+  flex-direction: row;
 }
 
 .about-image {
@@ -120,50 +123,57 @@ body {
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
 }
 
 .skill-item {
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   background: #10234c;
   color: white;
   border-radius: 20px;
   font-size: 0.9rem;
 }
 
-/* กิจกรรมยามว่าง */
+/* Activity Section */
 .activity {
-  padding: 100px 0; 
-  color:blue;
-}.activity-grid {
+  padding: 4rem 0;
+  color: blue;
+}
+
+.activity-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  gap: 30px;
-  margin-top: 50px;
-  
-}.activity-card {
-  background: orange; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.875rem;
+  margin-top: 3.125rem;
+}
+
+.activity-card {
+  background: orange;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s;
-}.activity-card:hover {
+}
+
+.activity-card:hover {
   transform: translateY(-10px);
-}.activity-card img {
+}
+
+.activity-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}.activity-card h3,.activity-card p {
-  padding: 20px;
 }
 
+.activity-card h3,
+.activity-card p {
+  padding: 1.25rem;
+}
 
-
-
-/* โปรดติดต่อผม */
+/* Contact Section */
 .contact {
-  padding: 100px 0;
+  padding: 4rem 0;
   background: rgb(96, 116, 231);
   text-align: center;
 }
@@ -171,8 +181,9 @@ body {
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
+  gap: 1.875rem;
+  margin-top: 3.125rem;
+  flex-wrap: wrap;
 }
 
 .social-link {
@@ -195,20 +206,59 @@ body {
   color: #007bff;
 }
 
-/* ลิขสิทธิ์ */
+/* Footer */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 1.25rem;
   background: #333;
   color: white;
 }
 
-/* ตัวหนังสือที่ใช้h2 บนเว็บ */
 h2 {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
+  margin-bottom: 1.875rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: black;
 }
 
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .burger {
+    display: block;
+  }
+  
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .about-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .social-links {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .activity-card img {
+    height: 150px;
+  }
+  
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
