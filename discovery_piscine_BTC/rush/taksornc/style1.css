@@ -65,8 +65,45 @@ body {
 .burger {
   display: none;
   cursor: pointer;
+  position: static; /* เพื่อให้ dropdown อยู่ในตำแหน่งที่ถูกต้อง */
 }
 
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%; /* หรือ width: 300px; */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1001;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.burger.active .dropdown-menu {
+  display: block;
+}
+
+/* ... styles อื่นๆ ... */
 .burger div {
   width: 25px;
   height: 3px;

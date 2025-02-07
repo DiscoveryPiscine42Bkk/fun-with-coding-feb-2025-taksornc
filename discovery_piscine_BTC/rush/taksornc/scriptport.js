@@ -8,6 +8,11 @@ window.addEventListener('load', () => {
   }, 200); 
 });
 
+const burger = document.querySelector('.burger');
+
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+});
 
 const projectCards = document.querySelectorAll('.activity-card');
 
