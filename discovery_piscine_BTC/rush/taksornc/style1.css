@@ -74,7 +74,7 @@ body {
   top: 100%;
   left: 0;
   width: 100%; /* หรือ width: 300px; */
-  background-color: #fff;
+  background-color: wheat;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   list-style: none;
   padding: 0;
@@ -85,18 +85,18 @@ body {
 .dropdown-menu li {
   padding: 10px;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid wheat;
 }
 
 .dropdown-menu a {
   text-decoration: none;
-  color: #333;
+  color: black;
   display: block;
   transition: background-color 0.3s;
 }
 
 .dropdown-menu a:hover {
-  background-color: #f0f0f0;
+  background-color: yellowgreen;
 }
 
 .burger.active .dropdown-menu {
